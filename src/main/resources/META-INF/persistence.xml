@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Etiqueta contenedora de la unidad de persitencia en general -->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+	version="2.2">
+	<persistence-unit name="inventario" transaction-type="RESOURCE_LOCAL">
+		<description>
+            Unidad de persitencia para la base de datos control_de_Ventas
+        </description>
+		<properties>
+			<!--Configuracion de conexion a la base de datos-->
+			<!--Driver de conexion a la BD-->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<!--URL de conexion a la BD-->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/inventario_alura" />
+			<!--Credenciales de conexion: usuario-->
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<!--Credenciales de conexion: password-->
+			<property name="javax.persistence.jdbc.password" value="2011.1994" />
+			
+			<!--Configuraciones adicionales de Hibernate-->
+			<!-- Permite definir el lenguaje de la base de datos, que dialecto SQL utilizar-->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="validate"></property>
+			<property name="hibernate.show_sql" value="true"></property>
+			<property name="hibernate.format_sql" value="true"></property>
+		</properties>
+	</persistence-unit>
+</persistence>
