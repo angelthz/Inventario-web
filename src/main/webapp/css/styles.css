@@ -60,7 +60,9 @@ td{
     font-size: .9rem;
 }
 
-
+tbody tr:nth-child(odd){
+    background-color:white;
+}
 tbody tr:nth-child(even){
     background-color:#f8f6ff;
 }
@@ -189,7 +191,7 @@ form input[type="button"]:hover{
 	background-color: white;
     padding: 2rem;
 }
-h1,h2,h3{
+h1,h2,h3, p{
 	margin: 0;
 }
 .delete-product-form{
@@ -242,5 +244,76 @@ h1,h2,h3{
 .add-product > button:hover{
 	background-color: #4f59a4;
 	cursor: pointer;
+}
+
+.icons{
+	width: 28px;
+	height: 28px;
+	filter: invert(97%) sepia(6%) saturate(91%) hue-rotate(197deg) brightness(118%) contrast(92%);
+	transition: opacity 400ms ease;
+}
+
+.icons:hover{
+	opacity: .75;
+}
+
+.header{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 5vh;
+	
+	color: whitesmoke;
+}
+
+
+.header>nav{
+	width: 25%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.header nav>a{
+	color: whitesmoke;
+	text-decoration: none;
+	transition: color 400ms ease;
+}
+
+.header nav>a:hover{
+	color: #ccc;
+	text-decoration: none;
+}
+
+.login{
+	background-color: #e9edf9;
+}
+.sesion-container{
+	width: 35%;
+	height: 75vh;
+	margin: 10vh auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color:#eeecf6;
+	border-radius: 1rem;
+	box-shadow: 0px 13px 18px 8px rgba(0, 0, 0, 0.15);
+}
+
+.login-header{
+	width: 100%;
+	height: 15%;
+	text-align: center;
+	padding: 1rem;
+	border-bottom: white 3px solid;
+	color: #536387;
+}
+.login-body{
+	padding: 2rem;
+	width: 100%;
+	height: 80%;
 }
 

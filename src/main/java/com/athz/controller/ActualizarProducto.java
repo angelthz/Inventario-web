@@ -1,27 +1,21 @@
-package com.athz.servlets;
+package com.athz.controller;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 
 import javax.persistence.EntityManager;
 
-import com.athz.dao.DaoCategoria;
 import com.athz.dao.DaoProducto;
 import com.athz.jpa.entities.Categoria;
 import com.athz.jpa.entities.Producto;
 import com.athz.jpa.utils.EmFactory;
 
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet (urlPatterns = "/actualizar-producto")
-public class ActualizarProductoServlet extends HttpServlet{
+public class ActualizarProducto implements Accion{
+
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public Respuesta ejecutar(HttpServletRequest req, HttpServletResponse resp) {
 		EntityManager em = EmFactory.getEntityManager();
 		DaoProducto productoDao = new DaoProducto(em);
 		
@@ -36,6 +30,8 @@ public class ActualizarProductoServlet extends HttpServlet{
 		Producto prod = new Producto(id, categoria, nombre, precio, cantidad);
 		productoDao.upadteProducto(prod);
 		
-		resp.sendRedirect("listar-productos");
+		em.close();
+		return new Respuesta(Respuesta.REDIRECT, "?accion=ListarProducto");
 	}
+
 }

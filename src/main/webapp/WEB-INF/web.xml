@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
-  <display-name>inventario</display-name>
+  <display-name>inventario-web</display-name>
   <welcome-file-list>
-    <welcome-file>listar-productos</welcome-file>
+    <welcome-file>entrada</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>GuardarProductoServlet</display-name>
-    <servlet-name>GuardarProductoServlet</servlet-name>
-    <servlet-class>com.athz.servlets.GuardarProductoServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GuardarProductoServlet</servlet-name>
-    <url-pattern>/guardar-producto</url-pattern>
-  </servlet-mapping>
   
+  <filter>
+  	<filter-name>FiltroMonitoreo</filter-name>
+  	<filter-class>com.athz.servlets.MonitoreoFiltro</filter-class>
+  </filter>
+  <filter-mapping>
+  	  <filter-name>FiltroMonitoreo</filter-name>
+  	  <url-pattern>/entrada</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>FiltroInicio</filter-name>
+  	<filter-class>com.athz.servlets.InicioFiltro</filter-class>
+  </filter>
+  <filter-mapping>
+  	  <filter-name>FiltroInicio</filter-name>
+  	  <url-pattern>/entrada</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>FiltroLogin</filter-name>
+  	<filter-class>com.athz.servlets.LoginFiltro</filter-class>
+  </filter>
+  <filter-mapping>
+  	  <filter-name>FiltroLogin</filter-name>
+  	  <url-pattern>/entrada</url-pattern>
+  </filter-mapping>
 </web-app>

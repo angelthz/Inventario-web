@@ -15,7 +15,8 @@ document.addEventListener("click", e => {
 		saveProductForm.precio.value = "";
 		saveProductForm.cantidad.value = "";
 		saveProductForm.categoria.value = "";
-		saveProductForm.setAttribute("action","guardar-producto")
+		saveProductForm.accion.value = "GuardarProducto";
+		console.log(saveProductForm.getAttribute("action"));
 		saveProductForm.classList.remove("hidden");
 		formsContainer.classList.remove("hidden");
 	}
@@ -25,7 +26,8 @@ document.addEventListener("click", e => {
 		saveProductForm.nombre.value = e.target.dataset.nombre;
 		saveProductForm.precio.value = e.target.dataset.precio;
 		saveProductForm.cantidad.value = e.target.dataset.cantidad;
-		saveProductForm.setAttribute("action","actualizar-producto");
+		saveProductForm.accion.value = "ActualizarProducto";
+		console.log(saveProductForm.getAttribute("action"));
 		saveProductForm.classList.remove("hidden");
 		formsContainer.classList.remove("hidden"); 
 	}
@@ -49,4 +51,4 @@ document.addEventListener("click", e => {
 	
 });
 
-console.log("Hello")
+console.log("Hellozzzzzzzzzz")

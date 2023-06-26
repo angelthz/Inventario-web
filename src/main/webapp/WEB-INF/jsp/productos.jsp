@@ -9,10 +9,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 	<header class="header">
+	<h1>Inventario web</h1>
+	<nav>
+		<h4>@${usuario}</h4>
+		<a href="entrada?accion=LoginClose">Cerrar sesion</a>
+		<a href="https://github.com/angelthz" target="blank"> <img src="assets/git-icon.svg" class="icons"> </a>
+	</nav>
 	</header>
 	
 	<div class="table-container">
@@ -58,8 +65,9 @@
     </div>
     
 	<div class="forms-container hidden">
-		<form  action="guardar-producto" method="POST" class="save-producto-form hidden">
+		<form  action="entrada" method="POST" class="save-producto-form hidden">
 			<input type="hidden" name="id" value="">
+			<input type="hidden" name="accion" value="">
 			<label for="name" >Nombre</label>
 			<input type="text" name="nombre" id="name" required>
 			<label for="price">Precio</label>
@@ -75,10 +83,11 @@
 			</select>
 			<input type="submit" value="Guardar" id="save-product">
 		</form>
-		<form class="delete-product-form hidden" action="eliminar-producto" method="POST">
+		<form class="delete-product-form hidden" action="entrada" method="POST">
 			<h3>¿Desea eliminar el siguiente producto?</h3>
 			<h4 id="product-name">name</h4>
 			<div class="input-container">
+				<input type="hidden" name="accion" value="BorrarProducto">
 				<input name="id" type="hidden" value="">
 				<input name="nombre" type="hidden" value="">
 				<input type="submit" value="Si">
